@@ -17,6 +17,9 @@
                     {{ __('You are logged in!') }}
                 </div>
             </div>
+            <a class="navbar-brand" href="{{ url('/') }}">
+                <img src="/images/Softkit_logo.png" width="40" height="40" class="d-inline-block align-top" alt="">
+            </a>
         </div>
     </div>
 </div>
