@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+Visitor Management System    
+@endsection
+
 @section('nav')
     @include('layouts.nav')
 @endsection

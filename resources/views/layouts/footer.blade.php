@@ -11,17 +11,22 @@
                             <h5>{{ 'Softkit' }}</h5>
                         </span>
                     </div>
-                    <div class="col-md-4 offset-md-1">
+                    <div class="col-md-4 ps-3">
+                        {{-- <a class="text-white" href="#">&nbsp;<span><i class="fas fa-info"></i></span>&nbsp;&nbsp;{{ 'About Us' }}</a><br>
+                        <a class="text-white" href="#"><span><i class="fas fa-envelope-open-text"></i></span>
+                            {{ 'Contact Us' }}</a><br>
+                        <a class="text-white" href="#"><span><i class="fas fa-headset"></i></span>
+                            {{ 'Support' }}</a><br> --}}
+                    </div>
+                    <div class="col-md-2 offset-md-1">
+                        {{-- <a class="text-white" href="#">{{ 'About Us' }}</a><br>
+                        <a class="text-white" href="#">{{ 'Contact Us' }}</a><br>
+                        <a class="text-white" href="#">{{ 'Support' }}</a><br> --}}
                         <a class="text-white" href="#">&nbsp;<span><i class="fas fa-info"></i></span>&nbsp;&nbsp;{{ 'About Us' }}</a><br>
                         <a class="text-white" href="#"><span><i class="fas fa-envelope-open-text"></i></span>
                             {{ 'Contact Us' }}</a><br>
                         <a class="text-white" href="#"><span><i class="fas fa-headset"></i></span>
                             {{ 'Support' }}</a><br>
-                    </div>
-                    <div class="col-md-1 offset-md-1">
-                        <a class="text-white" href="#">{{ 'About Us' }}</a><br>
-                        <a class="text-white" href="#">{{ 'Contact Us' }}</a><br>
-                        <a class="text-white" href="#">{{ 'Support' }}</a><br>
                     </div>
                 </div>
             </div>

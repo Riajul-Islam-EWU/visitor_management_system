@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+Get Pass    
+@endsection
+
 @section('nav')
     @include('layouts.nav')
 @endsection
@@ -16,7 +20,11 @@
                         <div class="card-body">
                             <h5 class="card-title">Please collect your one time pass</h5>
                             <p class="card-text">Note: The pass will be expired after the selected visiting time.</p>
-                            <a href="#" class="btn btn-outline-primary">Get Pass</a>
+                            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                Get Pass
+                            </button>
+                            <x-Modal/>
+                            {{-- @include('layouts.modal',['modal_title' => 'Fill up the form to get pass']) --}}
                         </div>
                         <div class="card-footer text-muted">
                             If any inconvenience happens, please contact the authority                            
@@ -27,6 +35,8 @@
         </div>
     </div>
 @endsection
+
+
 
 @section('foot')
     @include('layouts.footer')
