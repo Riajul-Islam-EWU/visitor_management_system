@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GetpassController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +18,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/getpass', function () {
-    return view('getpass');
-})->name('getpass');
+Route::get('/getpass', [GetpassController::class, 'getGetpass'])->name('getpass');
+
+Route::post('/getpass/store', [GetpassController::class, 'postStore']);
 
 Auth::routes();
 
