@@ -1,49 +1,58 @@
 @extends('layouts.app')
 
 @section('title')
-    Get Pass
+Get Pass
 @endsection
 
 @section('nav')
-    @include('layouts.nav')
+@include('layouts.nav')
 @endsection
 
 @section('content')
-    <div class="m-0 p-0">
-        <div class="container-fluid">
-            <div class="row justify-content-center mt-5">
-                <div class="col-6 p-0">
-                    <div class="card text-center">
-                        <div class="card-header">
-                            Welcome to Softkit
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Please collect your one time pass</h5>
-                            <p class="card-text">Note: The pass will be expired after the selected visiting time.</p>
+<div class="m-0 p-0" id="getpass_card">
+    <div class="container-fluid">
+        <div class="row justify-content-center mt-5">
+            <div class="col-6 p-0">
+                <div class="card text-center">
+                    <div class="card-header">
+                        Welcome to Softkit
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Please collect your one time pass</h5>
+                        <p class="card-text">Note: The pass will be expired after the selected visiting time.</p>
+                        <div id="button_getpass">
                             <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
                                 data-bs-target="#modal_id">
                                 Get Pass
                             </button>
-                            <x-Modal />
-                            {{-- @include('layouts.modal',['modal_title' => 'Fill up the form to get pass']) --}}
                         </div>
-                        <div class="card-footer text-muted">
-                            If any inconvenience happens, please contact the authority
+                        <div>
+                            <div id="token_getpass" style="display:none"
+                                class="p-3 mb-2 bg-success text-white rounded-3">
+                                <h3>Token: <span id="show_token">dfsdaggfdsfd</span> </h3>
+                            </div>
                         </div>
+                        <x-Modal />
+                        {{-- @include('layouts.modal',['modal_title' => 'Fill up the form to get pass']) --}}
+                    </div>
+                    <div class="card-footer text-muted">
+                        If any inconvenience happens, please contact the authority
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 @endsection
 
 @section('foot')
-    @include('layouts.footer')
+@include('layouts.footer')
 @endsection
 
 @section('script')
-    <script>
-        var modal_id = $('#modal_id');
+
+<script>
+    var modal_id = $('#modal_id');
         var SubmitGetpass = $('.SubmitGetpass');
         var adminUrl = '{{ url('') }}';
 
@@ -67,18 +76,21 @@
         }
 
         function store() {
-            if (!confirm('Are you sure?')) return;
             $.ajax({
                 method: 'POST',
                 url: adminUrl + '/getpass/store',
                 data: getInputs(),
                 dataType: 'JSON',
-                success: function() {
+                success: function(data) {
                     console.log('inserted')
                     modal_id.modal('hide')
+                    $("#button_getpass").hide();
+                    $("#token_getpass").show();
+                    console.log(data);
+                    $( "#show_token" ).html(data['token']);
                 }
             })
         }
 
-    </script>
+</script>
 @endsection

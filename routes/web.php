@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\GetpassController;
+use App\Http\Controllers\TestController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +19,10 @@ use App\Http\Controllers\GetpassController;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/test', function () {
+    return view('layouts.test');
 });
 
 Route::get('/getpass', [GetpassController::class, 'getGetpass'])->name('getpass');

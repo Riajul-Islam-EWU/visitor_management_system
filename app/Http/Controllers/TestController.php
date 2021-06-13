@@ -2,32 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Test;
+use Illuminate\Http\Request;
 use Carbon\Carbon;
 
-use App\Models\Getpass;
-use Illuminate\Http\Request;
-
-class GetpassController extends Controller
+class TestController extends Controller
 {
-    public function getGetpass()
-    {
-        return view(view: 'getpass');
-    }
-
-    public function postStore(Request $request)
-    {
-        $current_date = Carbon::now()->format('Y-m-d');
-        $getpass_count = Getpass::whereBetween('created_at', [$current_date . ' 00:00:00', $current_date . ' 23:59:59'])->count();
-
-        $token = "Pass-" . Carbon::now()->format('ymd') . str_pad($getpass_count + 1, 3, "0", STR_PAD_LEFT);
-
-        $req_all = $request->all();
-        $req_all["token"] = $token;
-        $getpass = new Getpass();
-        $getpass->create($req_all);
-        return ['success' => true, 'message' => 'Inserted successfully', 'token' => $token];
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -35,7 +15,8 @@ class GetpassController extends Controller
      */
     public function index()
     {
-        //
+        $token = "ran-".Carbon::now()->format('y').str_pad(Carbon::now()->format('m'), 2, "0", STR_PAD_LEFT).str_pad(Carbon::now()->format('d'), 2, "0", STR_PAD_LEFT);
+        dd($token);
     }
 
     /**
@@ -62,10 +43,10 @@ class GetpassController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Getpass  $getpass
+     * @param  \App\Models\Test  $test
      * @return \Illuminate\Http\Response
      */
-    public function show(Getpass $getpass)
+    public function show(Test $test)
     {
         //
     }
@@ -73,10 +54,10 @@ class GetpassController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Getpass  $getpass
+     * @param  \App\Models\Test  $test
      * @return \Illuminate\Http\Response
      */
-    public function edit(Getpass $getpass)
+    public function edit(Test $test)
     {
         //
     }
@@ -85,10 +66,10 @@ class GetpassController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Getpass  $getpass
+     * @param  \App\Models\Test  $test
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Getpass $getpass)
+    public function update(Request $request, Test $test)
     {
         //
     }
@@ -96,10 +77,10 @@ class GetpassController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Getpass  $getpass
+     * @param  \App\Models\Test  $test
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Getpass $getpass)
+    public function destroy(Test $test)
     {
         //
     }
