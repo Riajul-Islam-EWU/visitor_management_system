@@ -37,9 +37,10 @@
 
 
     {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
+    @yield('styles')
     <style>
         body {
-            background-color: slategrey;
+            background-color: rgb(218, 248, 255);
         }
 
         a {

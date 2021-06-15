@@ -8,6 +8,30 @@ Get Pass
 @include('layouts.nav')
 @endsection
 
+@section('styles')
+<style>
+    @media print {
+        body * {
+            visibility: hidden;
+        }
+
+        .btn_print {
+            visibility: hidden;
+        }
+
+        #token_print * {
+            visibility: visible;
+        }
+
+        #token_print {
+            position: absolute;
+            top: 40px;
+            left: 30px;
+        }
+    }
+</style>
+@endsection
+
 @section('content')
 <div class="m-0 p-0" id="getpass_card">
     <div class="container-fluid">
@@ -26,11 +50,15 @@ Get Pass
                                 Get Pass
                             </button>
                         </div>
-                        <div>
-                            <div id="token_getpass" style="display:none"
-                                class="p-3 mb-2 bg-success text-white rounded-3">
-                                <h3>Token: <span id="show_token">dfsdaggfdsfd</span> </h3>
+                        <div id="token_getpass" style="display:none">
+                            <div id="token_print">
+                                <div class="p-3 mb-2 bg-success text-white rounded-3">
+                                    <h3>Token: <span id="show_token"></span> </h3>
+                                </div>
                             </div>
+                            <br>
+                            <button class="btn_print btn btn-outline-primary" onclick="window.print()"><i
+                                    class="fas fa-print">print</i> Print</button>
                         </div>
                         <x-Modal />
                         {{-- @include('layouts.modal',['modal_title' => 'Fill up the form to get pass']) --}}
