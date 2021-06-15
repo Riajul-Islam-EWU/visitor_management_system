@@ -15,8 +15,7 @@ class TestController extends Controller
      */
     public function index()
     {
-        $token = "ran-".Carbon::now()->format('y').str_pad(Carbon::now()->format('m'), 2, "0", STR_PAD_LEFT).str_pad(Carbon::now()->format('d'), 2, "0", STR_PAD_LEFT);
-        dd($token);
+        //
     }
 
     /**

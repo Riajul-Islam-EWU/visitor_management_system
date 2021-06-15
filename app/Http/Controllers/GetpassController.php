@@ -6,6 +6,7 @@ use Carbon\Carbon;
 
 use App\Models\Getpass;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class GetpassController extends Controller
 {
@@ -25,6 +26,14 @@ class GetpassController extends Controller
         $req_all["token"] = $token;
         $getpass = new Getpass();
         $getpass->create($req_all);
+
+        $data = ['name' => $token, 'data' => "testing email"];
+        $user['to'] = $req_all["email"];
+        Mail::send('layouts.mail', $data, function ($message) use ($user) {
+            $message->to($user['to']);
+            $message->subject('Visitor Pass');
+        });
+
         return ['success' => true, 'message' => 'Inserted successfully', 'token' => $token];
     }
 
