@@ -1,26 +1,34 @@
 @extends('layouts.app')
 
+@section('title')
+Softkit - Home
+@endsection
+
+@section('nav')
+@include('layouts.nav')
+@endsection
+
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mt-5">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
+                    </div>
                     @endif
-
                     {{ __('You are logged in!') }}
                 </div>
             </div>
-            <a class="navbar-brand" href="{{ url('/') }}">
-                <img src="/images/Softkit_logo.png" width="40" height="40" class="d-inline-block align-top" alt="">
-            </a>
         </div>
     </div>
 </div>
+@endsection
+
+@section('foot')
+@include('layouts.footer')
 @endsection
