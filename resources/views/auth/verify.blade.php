@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-Softkit - Login
+Softkit - Verify E-mail
 @endsection
 
 @section('nav')

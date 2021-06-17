@@ -24,7 +24,7 @@
                 @guest
                 @if (Route::has('getpass'))
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="{{ route('getpass') }}">{{ __('Get Pass') }}</a>
+                    <a class="nav-link text-white" href="{{ route('getpass') }}">{{ __('Get one time Pass') }}</a>
                 </li>
                 @endif
 
