@@ -29,6 +29,6 @@ Route::get('/getpass', [GetpassController::class, 'getGetpass'])->name('getpass'
 
 Route::post('/getpass/store', [GetpassController::class, 'postStore']);
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
