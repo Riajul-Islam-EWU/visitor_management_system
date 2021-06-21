@@ -48,7 +48,7 @@
                 @endif
 
                 <div class="btn-group">
-                    <button type="button" class="btn text-white">{{ Auth::user()->name }}</button>
+                    <button type="button" class="btn text-white">{{ Auth::user()->username }}</button>
                     <button type="button" class="btn text-white dropdown-toggle dropdown-toggle-split"
                         id="nav-item dropdownMenuReference" data-bs-toggle="dropdown" aria-expanded="false"
                         data-bs-reference="parent">

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-Visitor Management System    
+    Visitor Management System
 @endsection
 
 @section('nav')

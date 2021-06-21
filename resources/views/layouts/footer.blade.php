@@ -37,7 +37,7 @@
                     <span class="text-white"><i class="far fa-copyright text-white"></i><a
                             href="{{ 'mailto:softkit.info@gmail.com' }}" class="text-white">Softkit</a> by <a
                             href="https://www.facebook.com/ritewu2014/"
-                            class="text-white">{{ 'Riajul Islam Tonmoy' }}</a></span>
+                            class="text-white">{{ 'Riajul Islam' }}</a></span>
                 </div>
             </div>
         </div>
