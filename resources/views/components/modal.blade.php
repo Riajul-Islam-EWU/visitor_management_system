@@ -22,6 +22,15 @@
                     <input type="number" name="phone" class="form-control mb-3" placeholder="Enter your phone number"
                         required>
                 </div>
+                <div class="form-group">
+                    <label for="department" class="float-md-start mb-2">Department</label>
+                    <select name="department" class="form-select mb-3" required>
+                        <option selected disabled>Open to select</option>
+                        @foreach (\App\Models\Department::select('name', 'id')->get() as $department)
+                            <option value="{{ $department->id }}"> {{ $department->name }} </option>
+                        @endforeach
+                    </select>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-target="#modal_id" data-bs-toggle="modal"

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ModifyRoleToUsersTable extends Migration
+class CreateRolesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class ModifyRoleToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropUnique('users_role_unique');
+        Schema::create('roles', function (Blueprint $table) {
+            $table->id();
+            $table->string('role');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +27,6 @@ class ModifyRoleToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('role')->unique()->change();
-        });
+        Schema::dropIfExists('roles');
     }
 }

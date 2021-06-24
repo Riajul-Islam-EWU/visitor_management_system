@@ -18,7 +18,7 @@ class DepartmentSeeder extends Seeder
     {
         for ($i = 0; $i < 8; $i++) {
             DB::table('departments')->insert([
-                'department' => Str::random(10),
+                'name' => Str::random(10),
             ]);
         }
     }
